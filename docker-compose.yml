@@ -5,8 +5,6 @@ services:
     container_name: git_alarm_db
     ports:
       - "3306:3306"
-    expose:
-      - "3306"
     environment:
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=0000
@@ -14,3 +12,11 @@ services:
       - MYSQL_ROOT_PASSWORD=root
     volumes:
       - "./conf.d:/etc/mysql/conf.d:ro"
+
+  git_alarm:
+    image: joseongsik/myapp
+    container_name: git_alarm
+    ports:
+      - "8086:8086"
+    expose:
+      - "8086"
